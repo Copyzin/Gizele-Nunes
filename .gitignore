@@ -1,0 +1,23 @@
+# Documentos internos da agencia
+CLAUDE.md
+design.md
+landing-patterns.md
+client-briefing-template.md
+infos.txt
+noise effect.md
+whatsapp-bubble-button.md
+
+# Imagens candidatas / rascunhos
+section2_candidate_*.jpg
+
+# Pastas de materiais brutos do cliente
+FOTOS DA CLIENTE/
+INDENTIDADE VISUAL/
+LOGO MAIS VARIANTES/
+
+# Imagem duplicada nao utilizada
+assets/images/gizele-sobre.jpg
+
+# OS X
+.DS_Store
+Thumbs.db
