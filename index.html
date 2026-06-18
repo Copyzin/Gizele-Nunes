@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Consultório em Conformidade | Módulo 01 — Dra. Gizele Nunes</title>
-  <meta name="description" content="Aprenda a aplicar advertências, suspensões e demissões com total respaldo jurídico. O Método S.A.F.E. devolve a autoridade ao dentista — contrato validado, aulas práticas e suporte jurídico incluído.">
+  <title>Consultório em Conformidade | Módulo 01 · Dra. Gizele Nunes</title>
+  <meta name="description" content="Aprenda a aplicar advertências, suspensões e demissões com total respaldo jurídico. O Método S.A.F.E. devolve a autoridade ao dentista: contrato validado, aulas práticas e suporte jurídico incluído.">
 
   <!-- TODO cliente: trocar o numero do WhatsApp (5511999999999), e-mail, OAB e anos de atuacao -->
   <!-- TODO deploy: confirmar o dominio absoluto abaixo (og:url / og:image / twitter:image) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Gizele Nunes - Advocacia da Saude">
-  <meta property="og:title" content="Consultório em Conformidade — Módulo 01 | Método S.A.F.E.">
+  <meta property="og:title" content="Consultório em Conformidade · Módulo 01 | Método S.A.F.E.">
   <meta property="og:description" content="Punir sem respaldo jurídico é como tratar sem diagnóstico. O Método S.A.F.E. estrutura contrato validado, aulas práticas e suporte jurídico para que o dentista retome a autoridade no consultório.">
   <meta property="og:image" content="https://gizelenunes.adv.br/assets/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://gizelenunes.adv.br/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Consultório em Conformidade — Módulo 01 | Método S.A.F.E.">
+  <meta name="twitter:title" content="Consultório em Conformidade · Módulo 01 | Método S.A.F.E.">
   <meta name="twitter:description" content="Punir sem respaldo jurídico é como tratar sem diagnóstico. O Método S.A.F.E. estrutura contrato validado, aulas práticas e suporte jurídico para que o dentista retome a autoridade no consultório.">
   <meta name="twitter:image" content="https://gizelenunes.adv.br/assets/images/og-image.png">
 
@@ -49,8 +49,8 @@
     };
   </script>
 
-  <link rel="icon" href="assets/images/logo-icon.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=15">
+  <link rel="icon" href="favicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="assets/css/styles.css?v=27">
 </head>
 
 <body class="font-body bg-surface text-ink antialiased">
@@ -68,12 +68,21 @@
 
       <nav class="hidden lg:flex items-center gap-10 xl:gap-14 text-[0.72rem] tracking-[0.2em] uppercase text-ink/70">
         <a href="#problema" class="nav-link">O problema</a>
-        <a href="#metodo" class="nav-link">Método SAFE</a>
+        <div class="nav-dd" id="navMethodDd">
+          <a href="#metodo" class="nav-link nav-dd-trigger" aria-haspopup="true" aria-expanded="false">Método SAFE<span class="material-symbols-outlined nav-dd-caret" aria-hidden="true">expand_more</span></a>
+          <div class="nav-dd-bridge" aria-hidden="true"></div>
+          <ul class="nav-dd-panel" role="menu" aria-label="Pilares do Método SAFE">
+            <li role="none"><a role="menuitem" href="metodo/seguranca.html" style="--ddi:0"><span class="nav-dd-letter" aria-hidden="true">S</span>Segurança</a></li>
+            <li role="none"><a role="menuitem" href="metodo/aplicacao.html" style="--ddi:1"><span class="nav-dd-letter" aria-hidden="true">A</span>Aplicação</a></li>
+            <li role="none"><a role="menuitem" href="metodo/formalizacao.html" style="--ddi:2"><span class="nav-dd-letter" aria-hidden="true">F</span>Formalização</a></li>
+            <li role="none"><a role="menuitem" href="metodo/estrategia.html" style="--ddi:3"><span class="nav-dd-letter" aria-hidden="true">E</span>Estratégia</a></li>
+          </ul>
+        </div>
         <a href="#sobre" class="nav-link">Sobre</a>
         <a href="#faq" class="nav-link">Dúvidas</a>
       </nav>
 
-      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener"
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%2C%20M%C3%B3dulo%2001%2C%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener"
          class="hidden lg:inline-flex items-center gap-2 rounded-full bg-navy text-clinical-white px-5 py-2.5 text-sm font-medium hover:bg-navy-700 transition-colors">
         <span class="wa-ico" aria-hidden="true"></span>
         Tirar dúvidas
@@ -106,14 +115,24 @@
       <p class="menu-eyebrow">Navegação</p>
       <ul class="mt-5">
         <li><a data-menu-item href="#problema" class="menu-link" style="--i:0"><span class="menu-idx">01</span><span class="menu-label">O problema</span><span class="material-symbols-outlined menu-arrow" aria-hidden="true">arrow_outward</span></a></li>
-        <li><a data-menu-item href="#metodo" class="menu-link" style="--i:1"><span class="menu-idx">02</span><span class="menu-label">Método SAFE</span><span class="material-symbols-outlined menu-arrow" aria-hidden="true">arrow_outward</span></a></li>
+        <li>
+          <button type="button" class="menu-link menu-link--toggle" style="--i:1" aria-expanded="false" aria-controls="mmPillars"><span class="menu-idx">02</span><span class="menu-label">Método SAFE</span><span class="material-symbols-outlined menu-arrow menu-arrow--toggle" aria-hidden="true">expand_more</span></button>
+          <div class="menu-sub" id="mmPillars">
+            <ul class="menu-sub-inner">
+              <li><a data-menu-item href="metodo/seguranca.html" class="menu-sublink" style="--si:0"><span class="menu-sub-letter" aria-hidden="true">S</span><span class="menu-sub-label">Segurança</span></a></li>
+              <li><a data-menu-item href="metodo/aplicacao.html" class="menu-sublink" style="--si:1"><span class="menu-sub-letter" aria-hidden="true">A</span><span class="menu-sub-label">Aplicação</span></a></li>
+              <li><a data-menu-item href="metodo/formalizacao.html" class="menu-sublink" style="--si:2"><span class="menu-sub-letter" aria-hidden="true">F</span><span class="menu-sub-label">Formalização</span></a></li>
+              <li><a data-menu-item href="metodo/estrategia.html" class="menu-sublink" style="--si:3"><span class="menu-sub-letter" aria-hidden="true">E</span><span class="menu-sub-label">Estratégia</span></a></li>
+            </ul>
+          </div>
+        </li>
         <li><a data-menu-item href="#sobre" class="menu-link" style="--i:2"><span class="menu-idx">03</span><span class="menu-label">Sobre</span><span class="material-symbols-outlined menu-arrow" aria-hidden="true">arrow_outward</span></a></li>
         <li><a data-menu-item href="#faq" class="menu-link" style="--i:3"><span class="menu-idx">04</span><span class="menu-label">Dúvidas</span><span class="material-symbols-outlined menu-arrow" aria-hidden="true">arrow_outward</span></a></li>
       </ul>
     </nav>
 
     <div class="relative z-10 px-7 sm:px-10 pb-9 pt-2">
-      <a data-menu-cta href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener"
+      <a data-menu-cta href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%2C%20M%C3%B3dulo%2001%2C%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener"
          class="flex items-center justify-center gap-2 w-full rounded-full bg-accent text-navy-deep font-semibold px-6 py-4 text-base shadow-lg shadow-black/20">
         <span class="wa-ico wa-ico--ink" aria-hidden="true"></span>
         Tirar dúvidas
@@ -134,17 +153,21 @@
     <section class="hero relative overflow-hidden">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="relative z-10 grid lg:grid-cols-[1.22fr_0.78fr] lg:min-h-[88vh]">
-        <div class="flex flex-col justify-center pt-20 sm:pt-24 pb-8 sm:pb-12 lg:py-24 px-6 sm:px-10 lg:pl-12 xl:pl-16 lg:pr-8">
-          <p data-anim="hero-eyebrow" class="font-caps text-[0.7rem] sm:text-xs tracking-[0.3em] text-accent-700 uppercase">Advocacia da Saúde<span class="hidden sm:inline"> &middot; Curso S.A.F.E. &mdash; Módulo 01</span></p>
+        <div class="flex flex-col justify-center pt-16 sm:pt-24 pb-8 sm:pb-12 lg:py-24 px-6 sm:px-10 lg:pl-12 xl:pl-16 lg:pr-8">
+          <p data-anim="hero-eyebrow" class="font-caps text-[0.7rem] sm:text-xs tracking-[0.3em] text-accent-700 uppercase">Advocacia da Saúde<span class="hidden sm:inline"> &middot; Curso S.A.F.E. &middot; Módulo 01</span></p>
           <h1 data-anim="hero-title" class="hero-title mt-3 sm:mt-6 font-display font-semibold text-navy">
             <span class="block tracking-tight">Sem contrato,</span>
             <span class="block italic text-accent tracking-normal">quem manda é a equipe.</span>
             <span class="block tracking-tight">Retome o controle.</span>
           </h1>
-          <p data-anim="hero-sub" class="mt-3 sm:mt-6 text-ink/80 text-base sm:text-lg leading-snug sm:leading-relaxed max-w-xl">
-            Mais de <strong class="font-semibold text-navy">80% das ações trabalhistas</strong> envolvem falhas na formalização. O Curso S.A.F.E. — Módulo 01 te entrega contrato validado por especialistas, aulas práticas de advertências e suspensões, e suporte jurídico — para punir com segurança e liderar com autoridade.
+          <p data-anim="hero-sub" class="mt-2 sm:mt-6 text-ink/80 text-base sm:text-lg leading-snug sm:leading-relaxed max-w-xl">
+            Mais de <strong class="font-semibold text-navy">80% das ações trabalhistas</strong> envolvem falhas na formalização.<span id="heroSubExtra" class="hero-sub-extra"> O Módulo 01 do S.A.F.E. te entrega contrato validado por especialistas, aulas práticas de advertências e suspensões, e suporte jurídico. Para punir com segurança e liderar com autoridade.</span>
           </p>
-          <div data-anim="hero-cta" class="mt-5 sm:mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <button id="heroSubToggle" class="hero-sub-toggle lg:hidden mt-2 flex items-center gap-1" aria-expanded="false" aria-controls="heroSubExtra">
+            <span class="hero-sub-toggle-label">Ver mais</span>
+            <span class="material-symbols-outlined text-base hero-sub-toggle-icon" aria-hidden="true">expand_more</span>
+          </button>
+          <div data-anim="hero-cta" class="mt-4 sm:mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <!-- TODO: link do curso (Hotmart/Kiwify) -->
             <a href="#"
                class="hero-whatsapp-cta w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-navy text-white px-7 sm:px-8 py-4 text-sm font-semibold tracking-wider sm:tracking-widest uppercase leading-tight sm:whitespace-nowrap shadow-lg shadow-navy/15">
@@ -159,10 +182,10 @@
           <p data-anim="hero-cta" class="cta-microcopy mt-3 sm:mt-5"><span class="status-dot"></span>Acesso online &middot; suporte jurídico incluso &middot; 100% prático</p>
         </div>
 
-        <div data-anim="hero-image" class="hero-photo relative px-6 sm:px-10 pb-10 lg:p-0">
+        <div data-anim="hero-image" class="hero-photo relative px-6 sm:px-10 pb-6 lg:p-0">
           <div class="hero-photo-frame">
             <img src="assets/images/gizele-hero.jpg?v=1" alt="Dra. Gizele Nunes, advogada especialista em Direito da Saúde"
-                 class="w-full h-[80vw] sm:h-[440px] object-cover"
+                 class="w-full h-[60vw] sm:h-[440px] object-cover"
                  style="object-position: 50% 22%;">
           </div>
         </div>
@@ -212,84 +235,94 @@
           <article data-anim="problem-card" class="problem-card problem-card--feature lg:col-span-2" style="background: rgba(45,39,99,0.04); border-color: rgba(45,39,99,0.14);">
             <span class="material-symbols-outlined problem-icon" aria-hidden="true">gavel</span>
             <h3 class="problem-title">Sem contrato, quem manda é a equipe</h3>
-            <p class="problem-text">Equipes percebem quando o dentista não tem respaldo jurídico — e normalizam o mau comportamento porque sabem que a punição não vai segurar na Justiça.</p>
+            <p class="problem-text">Equipes percebem quando o dentista não tem respaldo jurídico. Sem amparo legal, normalizam o mau comportamento porque sabem que a punição não vai segurar na Justiça.</p>
           </article>
           <!-- Description: middle-left -->
           <article data-anim="problem-card" class="problem-card">
             <span class="material-symbols-outlined problem-icon" aria-hidden="true">description</span>
             <h3 class="problem-title">Advertência sem protocolo não vale nada</h3>
-            <p class="problem-text">Sem documentação formal, a advertência não sustenta uma demissão por justa causa — e o dentista perde o processo mesmo tendo razão.</p>
+            <p class="problem-text">Sem documentação formal, a advertência não sustenta uma demissão por justa causa. O dentista perde o processo mesmo tendo razão.</p>
           </article>
           <!-- Policy: middle-right -->
           <article data-anim="problem-card" class="problem-card">
             <span class="material-symbols-outlined problem-icon" aria-hidden="true">policy</span>
             <h3 class="problem-title">LGPD no consultório é risco real</h3>
-            <p class="problem-text">Clínicas guardam dados sensíveis de saúde. As multas aplicadas pela ANPD já somam mais de <strong>R$60 milhões</strong> — e crescem.</p>
+            <p class="problem-text">Clínicas guardam dados sensíveis de saúde. As multas aplicadas pela ANPD já somam mais de <strong>R$60 milhões</strong>. O número não para de crescer.</p>
           </article>
           <!-- Group_remove: closing statement, full width -->
           <article data-anim="problem-card" class="problem-card problem-card--feature sm:col-span-2 lg:col-span-3" style="background: rgba(45,39,99,0.04); border-color: rgba(45,39,99,0.14);">
             <span class="material-symbols-outlined problem-icon" aria-hidden="true">group_remove</span>
             <h3 class="problem-title">Demissão sem processo correto vira condenação</h3>
-            <p class="problem-text">Sem advertências registradas e sem seguir o rito legal, o dentista sai em desvantagem na Justiça do Trabalho — mesmo que o funcionário tivesse errado.</p>
+            <p class="problem-text">Sem advertências registradas e sem seguir o rito legal, o dentista sai em desvantagem na Justiça do Trabalho. Mesmo que o funcionário tivesse errado.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ================= METODO SAFE ================= -->
-    <section id="metodo" class="relative scroll-mt-24 py-24 sm:py-32 lg:py-40" style="background: radial-gradient(ellipse 80% 60% at 50% 40%, #2D2763 0%, #1F1A47 100%);">
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="max-w-3xl">
+    <section id="metodo" class="safe-section scroll-mt-24 py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-5xl px-5 sm:px-8">
+
+        <div class="safe-headings">
           <p data-anim="section-title"><span class="eyebrow-pill eyebrow-pill--on-dark">Método SAFE</span></p>
           <h2 data-anim="section-title" class="mt-4 font-display font-semibold text-clinical-white text-3xl sm:text-4xl lg:text-5xl leading-tight">
             Os 4 pilares que devolvem a autoridade ao dentista.
           </h2>
-          <p data-anim="section-title" class="mt-5 font-display italic text-2xl sm:text-3xl text-accent">
-            Contrato validado, aulas práticas, formalização e suporte real.
-          </p>
         </div>
 
-        <div class="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
-          <!-- S: tall card, spans 2 rows on left -->
-          <div data-anim="step-card" class="md:row-span-2 flex flex-col rounded-[1.25rem] border border-line bg-clinical-white p-7 sm:p-8 shadow-xl shadow-black/25">
-            <span class="block font-caps text-5xl font-bold text-accent leading-none">S</span>
-            <h3 class="mt-4 font-display font-semibold text-navy text-xl sm:text-2xl">Segurança <span class="material-symbols-outlined align-middle text-accent" aria-hidden="true">verified_user</span></h3>
-            <p class="mt-3 text-[0.88rem] text-ink/75 leading-relaxed">Contrato de trabalho revisado e validado por especialistas em Direito do Trabalho e da Saúde. Alicerce jurídico para aplicar qualquer punição com respaldo.</p>
-            <div class="mt-auto pt-5 border-t border-navy/10">
-              <p class="font-display italic text-accent text-base sm:text-lg leading-snug">Sem contrato validado, nenhum dos outros pilares sustenta.</p>
+        <div class="safe-ledger mt-12 lg:mt-16">
+          <a class="safe-row" data-anim="safe-row" href="metodo/seguranca.html" aria-label="Pilar Segurança: ler o artigo completo">
+            <span class="safe-letter" aria-hidden="true">S</span>
+            <div class="safe-row-body">
+              <h3 class="safe-title">Segurança</h3>
+              <p class="safe-anchor">Contrato validado por especialistas.</p>
+              <p class="safe-body">Revisado por advogados de Direito Médico, da Saúde e do Trabalho. É o alicerce jurídico que sustenta qualquer advertência, suspensão ou demissão sem margem para contestação.</p>
+              <p class="safe-body">Mais de 80% das ações trabalhistas envolvem falhas na formalização. Com o contrato certo em mãos, você age com autoridade e o processo responde a seu favor.</p>
+              <p class="safe-quote">Sem contrato validado, nenhum dos outros pilares sustenta.</p>
+              <span class="safe-readmore">Ler o pilar<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
             </div>
-          </div>
-          <!-- A: top-right, spans cols 2-3 -->
-          <div data-anim="step-card" class="md:col-span-2 rounded-[1.25rem] border border-line bg-clinical-white p-7 sm:p-8 shadow-xl shadow-black/25">
-            <span class="block font-caps text-5xl font-bold text-accent leading-none">A</span>
-            <h3 class="mt-4 font-display font-semibold text-navy text-xl sm:text-2xl">Aplicação <span class="material-symbols-outlined align-middle text-accent" aria-hidden="true">edit_document</span></h3>
-            <p class="mt-3 text-[0.88rem] text-ink/75 leading-relaxed">Aulas práticas de advertências, suspensões e demissões — cada etapa com protocolo correto, sem improvisar.</p>
-          </div>
-          <!-- F: bottom-right, spans cols 2-3 -->
-          <div data-anim="step-card" class="md:col-span-2 rounded-[1.25rem] border border-line bg-clinical-white p-7 sm:p-8 shadow-xl shadow-black/25">
-            <span class="block font-caps text-5xl font-bold text-accent leading-none">F</span>
-            <h3 class="mt-4 font-display font-semibold text-navy text-xl sm:text-2xl">Formalização <span class="material-symbols-outlined align-middle text-accent" aria-hidden="true">assignment</span></h3>
-            <p class="mt-3 text-[0.88rem] text-ink/75 leading-relaxed">Aulas bônus com professores convidados + LGPD aplicada ao consultório odontológico. Proteção em todas as frentes.</p>
-          </div>
-          <!-- E: full width, horizontal layout on desktop -->
-          <div data-anim="step-card" class="md:col-span-3 flex flex-col md:flex-row md:items-center md:gap-8 rounded-[1.25rem] border border-accent/40 bg-accent/10 p-7 sm:p-8">
-            <span class="block font-caps text-5xl md:text-7xl font-bold leading-none shrink-0" style="color: #B9BDC6;">E</span>
-            <div>
-              <h3 class="mt-4 md:mt-0 font-display font-semibold text-clinical-white text-xl sm:text-2xl">Estratégia <span class="material-symbols-outlined align-middle" style="color: #B9BDC6;" aria-hidden="true">support_agent</span></h3>
-              <p class="mt-3 text-[0.88rem] text-clinical-white/80 leading-relaxed">Duas reuniões de implantação para adaptar o contrato ao seu consultório + canal de suporte jurídico contínuo.</p>
+          </a>
+          <a class="safe-row" data-anim="safe-row" href="metodo/aplicacao.html" aria-label="Pilar Aplicação: ler o artigo completo">
+            <span class="safe-letter" aria-hidden="true">A</span>
+            <div class="safe-row-body">
+              <h3 class="safe-title">Aplicação</h3>
+              <p class="safe-anchor">Protocolo correto em cada etapa.</p>
+              <p class="safe-body">Aulas práticas ensinam a aplicar advertências, suspensões e demissões: os documentos certos, na ordem certa, sem improvisar nem expor o consultório a riscos trabalhistas.</p>
+              <p class="safe-body">Punir sem respaldo jurídico é como tratar sem diagnóstico. Com o S.A.F.E., cada ação é guiada e documentada. O erro deixa de ser uma opção.</p>
+              <span class="safe-readmore">Ler o pilar<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
             </div>
-          </div>
+          </a>
+          <a class="safe-row" data-anim="safe-row" href="metodo/formalizacao.html" aria-label="Pilar Formalização: ler o artigo completo">
+            <span class="safe-letter" aria-hidden="true">F</span>
+            <div class="safe-row-body">
+              <h3 class="safe-title">Formalização</h3>
+              <p class="safe-anchor">Proteção em todas as frentes.</p>
+              <p class="safe-body">Aulas bônus com professores convidados e LGPD aplicada ao consultório odontológico: conformidade legal que vai além do vínculo empregatício.</p>
+              <p class="safe-body">A LGPD já gerou R$&nbsp;60&nbsp;milhões em multas no Brasil. Você lida com dados sensíveis de pacientes todo dia: a formalização protege antes que o problema chegue.</p>
+              <span class="safe-readmore">Ler o pilar<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+            </div>
+          </a>
+          <a class="safe-row" data-anim="safe-row" href="metodo/estrategia.html" aria-label="Pilar Estratégia: ler o artigo completo">
+            <span class="safe-letter" aria-hidden="true">E</span>
+            <div class="safe-row-body">
+              <h3 class="safe-title">Estratégia</h3>
+              <p class="safe-anchor">Implantação guiada para o seu consultório.</p>
+              <p class="safe-body">Duas reuniões de implantação para adaptar o contrato à sua realidade clínica: sem fórmulas genéricas, sem improviso, com um especialista ao lado.</p>
+              <p class="safe-body">Um canal de suporte jurídico contínuo para cada dúvida que surgir no dia a dia. Ter o método é diferente de ter autonomia com segurança. Aqui você tem os dois.</p>
+              <span class="safe-readmore">Ler o pilar<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+            </div>
+          </a>
         </div>
 
-        <div data-anim="step-card" class="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6 rounded-2xl border border-line bg-clinical-white px-6 sm:px-8 py-7">
-          <p class="text-ink/85 text-base sm:text-lg max-w-xl">Tudo isso em um único módulo — contrato, aulas, bônus e suporte jurídico. <strong class="text-navy font-semibold">Acesso imediato após a inscrição.</strong></p>
+        <div class="safe-cta-bar mt-12 lg:mt-16">
+          <p>Tudo isso em um único módulo: contrato, aulas, bônus e suporte jurídico. <strong>Acesso imediato após a inscrição.</strong></p>
           <!-- TODO: link do curso (Hotmart/Kiwify) -->
-          <a href="#"
-             class="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-navy text-clinical-white px-6 py-3.5 text-sm font-semibold hover:bg-navy-700 transition-colors">
-            <span class="material-symbols-outlined text-lg" aria-hidden="true">school</span>
+          <a href="#" class="safe-cta-btn">
+            <span class="material-symbols-outlined" aria-hidden="true">school</span>
             Quero me inscrever
           </a>
         </div>
+
       </div>
     </section>
 
@@ -305,7 +338,7 @@
                    style="object-position: 50% 20%; transform: scale(1.05); transform-origin: center top;">
               <!-- stat overlay -->
               <div class="absolute inset-x-0 bottom-0 px-5 py-5" style="background: linear-gradient(to top, rgba(10,22,40,0.82) 60%, transparent);">
-                <p class="font-display font-bold text-white leading-none" style="font-size: clamp(2.4rem, 8vw, 3.2rem);">1 em 3</p>
+                <p class="font-caps font-bold text-white leading-none" style="font-size: clamp(2.4rem, 8vw, 3.2rem);">1 em cada 3</p>
                 <p class="mt-1 text-white/80 leading-snug" style="font-size: clamp(0.72rem, 2.2vw, 0.82rem);">clínicas de saúde já enfrentou problemas jurídicos com a equipe.</p>
                 <p class="mt-2 text-white/45 uppercase tracking-widest" style="font-size: 0.6rem;">Fonte: Sebrae Saude, 2022</p>
               </div>
@@ -318,10 +351,10 @@
             Dra. Gizele Nunes
           </h2>
           <p data-anim="text-trace" class="mt-6 text-ink text-lg sm:text-xl leading-relaxed font-display">
-            Sou advogada especialista em Direito da Saúde e atuo em todo o Brasil, de forma 100% online. No dia a dia defendo pacientes contra planos e órgãos que falham com eles — e foi exatamente por conhecer esse jogo por dentro que criei o Método S.A.F.E. Sei onde o dentista fica exposto na Justiça do Trabalho e estruturei um curso para que você nunca mais precise improvisar na hora de punir.
+            Sou advogada especialista em Direito da Saúde e atuo em todo o Brasil, de forma 100% online. No dia a dia defendo pacientes contra planos e órgãos que falham com eles. Foi exatamente por conhecer esse jogo por dentro que criei o Método S.A.F.E. Sei onde o dentista fica exposto na Justiça do Trabalho e estruturei um curso para que você nunca mais precise improvisar na hora de punir.
           </p>
           <div data-anim="section-title" class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted">
-            <span class="inline-flex items-center gap-2"><span class="material-symbols-outlined text-accent text-lg" aria-hidden="true">balance_outlined</span>Conhece os dois lados do Direito da Saúde</span>
+            <span class="inline-flex items-center gap-2"><span class="material-symbols-outlined text-accent text-lg" aria-hidden="true">balance</span>Conhece os dois lados do Direito da Saúde</span>
             <span class="inline-flex items-center gap-2"><span class="material-symbols-outlined text-accent text-lg" aria-hidden="true">public</span>Atende todo o Brasil, 100% online</span>
           </div>
         </div>
@@ -336,7 +369,7 @@
           <ul class="mt-7 space-y-5">
             <li class="flex items-start gap-3">
               <span class="material-symbols-outlined text-accent mt-0.5" aria-hidden="true">check_circle</span>
-              <span class="text-clinical-white/90"><strong class="text-clinical-white">Contrato validado por especialistas</strong> em Direito do Trabalho e da Saúde — não um modelo genérico.</span>
+              <span class="text-clinical-white/90"><strong class="text-clinical-white">Contrato validado por especialistas</strong> em Direito do Trabalho e da Saúde. Não um modelo genérico.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="material-symbols-outlined text-accent mt-0.5" aria-hidden="true">check_circle</span>
@@ -358,7 +391,7 @@
             <blockquote data-anim="text-trace" data-trace-end="outline" class="mt-3 font-display italic text-2xl sm:text-3xl lg:text-4xl leading-snug text-clinical-white">
               A autoridade voltou pro consultório.
             </blockquote>
-            <figcaption class="mt-6 text-sm tracking-wide text-clinical-white/70">— Dra. Gizele Nunes</figcaption>
+            <figcaption class="mt-6 text-sm tracking-wide text-clinical-white/70">Dra. Gizele Nunes</figcaption>
           </figure>
         </div>
       </div>
@@ -379,7 +412,7 @@
           </details>
           <details data-anim="faq-item" class="faq-item" name="faq">
             <summary class="faq-summary"><span>O curso funciona para qualquer tipo de consultório?</span><span class="material-symbols-outlined faq-chevron" aria-hidden="true">expand_more</span></summary>
-            <div class="faq-content faq-a"><p>Sim. O Curso S.A.F.E. foi criado para dentistas que trabalham com equipe — seja clínica solo com recepcionista, seja clínica com vários colaboradores. O contrato e as aulas se adaptam à sua realidade.</p></div>
+            <div class="faq-content faq-a"><p>Sim. O Curso S.A.F.E. foi criado para dentistas que trabalham com equipe: clínica solo com recepcionista ou clínica com vários colaboradores. O contrato e as aulas se adaptam à sua realidade.</p></div>
           </details>
           <details data-anim="faq-item" class="faq-item" name="faq">
             <summary class="faq-summary"><span>Já tenho um contrato de trabalho. Preciso de um novo?</span><span class="material-symbols-outlined faq-chevron" aria-hidden="true">expand_more</span></summary>
@@ -391,11 +424,11 @@
           </details>
           <details data-anim="faq-item" class="faq-item" name="faq">
             <summary class="faq-summary"><span>Depois do curso, consigo aplicar punições sozinho?</span><span class="material-symbols-outlined faq-chevron" aria-hidden="true">expand_more</span></summary>
-            <div class="faq-content faq-a"><p>Esse é exatamente o objetivo. O Curso S.A.F.E. — Módulo 01 foi criado para que você tenha segurança para aplicar advertências, suspensões e demissões com respaldo jurídico, sem precisar acionar um advogado toda vez que surgir um problema.</p></div>
+            <div class="faq-content faq-a"><p>Esse é exatamente o objetivo. O Módulo 01 do S.A.F.E. foi criado para que você tenha segurança para aplicar advertências, suspensões e demissões com respaldo jurídico, sem precisar acionar um advogado toda vez que surgir um problema.</p></div>
           </details>
           <details data-anim="faq-item" class="faq-item" name="faq">
             <summary class="faq-summary"><span>Tenho outra dúvida antes de comprar. Como entro em contato?</span><span class="material-symbols-outlined faq-chevron" aria-hidden="true">expand_more</span></summary>
-            <div class="faq-content faq-a"><p>Fale diretamente com a Dra. Gizele pelo WhatsApp — é o canal mais rápido. <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener" class="text-navy underline font-semibold">Clique aqui para abrir a conversa.</a></p></div>
+            <div class="faq-content faq-a"><p>Fale diretamente com a Dra. Gizele pelo WhatsApp, o canal mais rápido. <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%2C%20M%C3%B3dulo%2001%2C%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener" class="text-navy underline font-semibold">Clique aqui para abrir a conversa.</a></p></div>
           </details>
         </div>
       </div>
@@ -409,7 +442,7 @@
           Pare de improvisar. <em class="not-italic text-accent">Lidere com autoridade.</em>
         </h2>
         <p data-anim="final-cta" class="mt-6 text-clinical-white/80 text-base sm:text-lg leading-relaxed">
-          O Curso S.A.F.E. — Módulo 01 entrega o contrato, as aulas e o suporte que faltavam para você retomar o controle do consultório sem medo de processo trabalhista.
+          O Módulo 01 do S.A.F.E. entrega o contrato, as aulas e o suporte que faltavam para você retomar o controle do consultório sem medo de processo trabalhista.
         </p>
         <div data-anim="final-cta" class="mt-9 flex justify-center">
           <!-- TODO: link do curso (Hotmart/Kiwify) -->
@@ -436,7 +469,7 @@
             <span class="font-caps text-[0.55rem] tracking-[0.28em] text-clinical-white/55 mt-1">ADVOCACIA DA SAÚDE</span>
           </span>
         </div>
-        <p class="mt-5 text-sm leading-relaxed text-clinical-white/65">Método S.A.F.E. — Módulo 01. Contrato validado, aulas práticas e suporte jurídico para dentistas. 100% online.</p>
+        <p class="mt-5 text-sm leading-relaxed text-clinical-white/65">Método S.A.F.E., Módulo 01. Contrato validado, aulas práticas e suporte jurídico para dentistas. 100% online.</p>
       </div>
 
       <nav class="text-sm">
@@ -453,7 +486,7 @@
         <p class="font-caps text-[0.6rem] tracking-[0.25em] text-clinical-white/50 uppercase">Contato</p>
         <ul class="mt-4 space-y-3">
           <li>
-            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2">
+            <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%2C%20M%C3%B3dulo%2001%2C%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener" class="footer-link inline-flex items-center gap-2">
               <span class="material-symbols-outlined text-lg" aria-hidden="true">chat</span> WhatsApp
             </a>
           </li>
@@ -485,15 +518,16 @@
 
   <!-- ================= STICKY BAR (mobile) ================= -->
   <div id="mobileStickyBar" class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-clinical-white border-t border-line px-4 py-3">
-    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener"
+    <!-- TODO: link do curso (Hotmart/Kiwify) -->
+    <a href="#"
        class="flex items-center justify-center gap-2 w-full rounded-full bg-navy text-clinical-white px-6 py-3.5 text-sm font-semibold">
-      <span class="material-symbols-outlined text-lg" aria-hidden="true">chat</span>
-      Dúvidas? Fale com a Gizele
+      <span class="material-symbols-outlined text-lg" aria-hidden="true">school</span>
+      Quero me inscrever no curso
     </a>
   </div>
 
   <!-- ================= WHATSAPP FAB ================= -->
-  <a id="whatsappFab" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <a id="whatsappFab" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%2C%20M%C3%B3dulo%2001%2C%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
     <span class="wa-ico wa-ico--lg" aria-hidden="true"></span>
   </a>
 
@@ -510,7 +544,7 @@
         <div class="wa-thread" id="waThread"></div>
         <div class="wa-quick" id="waQuick" aria-label="Duvidas frequentes"></div>
       </div>
-      <a class="wa-cta" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%20%E2%80%94%20M%C3%B3dulo%2001%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener">Falar com a Dra. Gizele</a>
+      <a class="wa-cta" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Dra.%20Gizele%21%20Vi%20o%20curso%20S.A.F.E.%2C%20M%C3%B3dulo%2001%2C%20e%20tenho%20uma%20d%C3%BAvida%20antes%20de%20me%20inscrever." target="_blank" rel="noopener">Falar com a Dra. Gizele</a>
     </div>
     <button type="button" class="wa-close" id="waClose" aria-label="Fechar conversa"></button>
   </div>
@@ -523,6 +557,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="assets/js/main.js?v=6" defer></script>
+  <script src="assets/js/main.js?v=13" defer></script>
 </body>
 </html>

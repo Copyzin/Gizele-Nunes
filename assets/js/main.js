@@ -111,12 +111,14 @@
   } else {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.9 } })
-      .to('[data-anim="hero-eyebrow"]', { opacity: 1, y: 0 })
-      .to('[data-anim="hero-title"]', { opacity: 1, y: 0 }, '-=0.6')
-      .to('[data-anim="hero-sub"]', { opacity: 1, y: 0 }, '-=0.55')
-      .to('[data-anim="hero-cta"]', { opacity: 1, y: 0 }, '-=0.5')
-      .to('[data-anim="hero-image"]', { opacity: 1, y: 0 }, '-=0.7');
+    if (heroEl) {
+      gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.9 } })
+        .to('[data-anim="hero-eyebrow"]', { opacity: 1, y: 0 })
+        .to('[data-anim="hero-title"]', { opacity: 1, y: 0 }, '-=0.6')
+        .to('[data-anim="hero-sub"]', { opacity: 1, y: 0 }, '-=0.55')
+        .to('[data-anim="hero-cta"]', { opacity: 1, y: 0 }, '-=0.5')
+        .to('[data-anim="hero-image"]', { opacity: 1, y: 0 }, '-=0.7');
+    }
 
     function reveal(selector, vars) {
       gsap.utils.toArray(selector).forEach(function (el) {
@@ -143,60 +145,109 @@
     batchReveal('[data-anim="cred-item"]');
     batchReveal('[data-anim="problem-card"]');
     batchReveal('[data-anim="step-card"]');
+    batchReveal('[data-anim="safe-row"]');
     batchReveal('[data-anim="faq-item"]');
 
     window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   }
 
   /* ---------- Text Trace (independent of GSAP) ---------- */
-  var traceTargets = doc.querySelectorAll('[data-anim="text-trace"]');
-  Array.prototype.forEach.call(traceTargets, function (el) {
-    var hasInlineChildren = Array.prototype.some.call(el.childNodes, function (n) { return n.nodeType === 1; });
-    if (hasInlineChildren) { return; }
+  /* exposed as window.SAFE_TRACE(scope) so dynamically rendered pages can re-run it */
+  function initTextTrace(scope) {
+    var root = scope || doc;
+    var traceTargets = root.querySelectorAll('[data-anim="text-trace"]');
+    Array.prototype.forEach.call(traceTargets, function (el) {
+      var hasInlineChildren = Array.prototype.some.call(el.childNodes, function (n) { return n.nodeType === 1; });
+      if (hasInlineChildren) { return; }
 
-    var traceColor = getComputedStyle(el).color;
-    el.style.setProperty('--trace-color', traceColor);
+      var traceColor = getComputedStyle(el).color;
+      el.style.setProperty('--trace-color', traceColor);
 
-    var rawText = el.textContent;
-    el.textContent = '';
-    var chars = [];
-    rawText.split(/(\s+)/).forEach(function (tok) {
-      if (tok.length === 0) return;
-      if (/^\s+$/.test(tok)) { el.appendChild(doc.createTextNode(tok)); return; }
-      var word = doc.createElement('span');
-      word.className = 'trace-word';
-      for (var i = 0; i < tok.length; i++) {
-        var span = doc.createElement('span');
-        span.className = 'trace-char';
-        span.textContent = tok[i];
-        word.appendChild(span);
-        chars.push(span);
-      }
-      el.appendChild(word);
-    });
-    if (chars.length === 0) return;
-
-    var staggerMs = parseInt(el.dataset.traceStaggerMs, 10) || 35;
-    var durationMs = parseInt(el.dataset.traceDurationMs, 10) || 600;
-    if (prefersReduced) return;
-
-    chars.forEach(function (c) { c.style.setProperty('--trace-duration', durationMs + 'ms'); });
-
-    var triggered = false;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !triggered) {
-          triggered = true;
-          io.disconnect();
-          chars.forEach(function (char, i) {
-            char.style.setProperty('--trace-delay', (i * staggerMs) + 'ms');
-            char.classList.add('is-animating');
-          });
+      var rawText = el.textContent;
+      el.textContent = '';
+      var chars = [];
+      rawText.split(/(\s+)/).forEach(function (tok) {
+        if (tok.length === 0) return;
+        if (/^\s+$/.test(tok)) { el.appendChild(doc.createTextNode(tok)); return; }
+        var word = doc.createElement('span');
+        word.className = 'trace-word';
+        for (var i = 0; i < tok.length; i++) {
+          var span = doc.createElement('span');
+          span.className = 'trace-char';
+          span.textContent = tok[i];
+          word.appendChild(span);
+          chars.push(span);
         }
+        el.appendChild(word);
       });
-    }, { threshold: 0.1 });
-    io.observe(el);
-  });
+      if (chars.length === 0) return;
+
+      var staggerMs = parseInt(el.dataset.traceStaggerMs, 10) || 35;
+      var durationMs = parseInt(el.dataset.traceDurationMs, 10) || 600;
+      if (prefersReduced) return;
+
+      chars.forEach(function (c) { c.style.setProperty('--trace-duration', durationMs + 'ms'); });
+
+      var triggered = false;
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !triggered) {
+            triggered = true;
+            io.disconnect();
+            chars.forEach(function (char, i) {
+              char.style.setProperty('--trace-delay', (i * staggerMs) + 'ms');
+              char.classList.add('is-animating');
+            });
+          }
+        });
+      }, { threshold: 0.1 });
+      io.observe(el);
+    });
+  }
+  initTextTrace(doc);
+  window.SAFE_TRACE = initTextTrace;
+
+  /* ---------- Header dropdown (Metodo SAFE) - hover intent ---------- */
+  var navDd = doc.getElementById('navMethodDd');
+  if (navDd && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var ddTrigger = navDd.querySelector('.nav-dd-trigger');
+    var ddCloseT = null;
+    var ddOver = false;
+    function ddOpen() {
+      clearTimeout(ddCloseT);
+      navDd.classList.add('is-open');
+      if (ddTrigger) ddTrigger.setAttribute('aria-expanded', 'true');
+    }
+    function ddClose() {
+      navDd.classList.remove('is-open');
+      if (ddTrigger) ddTrigger.setAttribute('aria-expanded', 'false');
+    }
+    function ddScheduleClose() {
+      clearTimeout(ddCloseT);
+      ddCloseT = setTimeout(function () { if (!ddOver) ddClose(); }, 220);
+    }
+    navDd.addEventListener('pointerenter', function () { ddOver = true; ddOpen(); });
+    navDd.addEventListener('pointerleave', function () { ddOver = false; ddScheduleClose(); });
+    if (ddTrigger) ddTrigger.addEventListener('focus', ddOpen);
+    navDd.addEventListener('focusout', function (e) {
+      if (!navDd.contains(e.relatedTarget)) ddClose();
+    });
+    navDd.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { ddClose(); if (ddTrigger) ddTrigger.blur(); }
+    });
+  }
+
+  /* ---------- Mobile submenu (disclosure under Metodo SAFE) ---------- */
+  var mmToggle = doc.querySelector('.menu-link--toggle');
+  if (mmToggle) {
+    var mmSub = doc.getElementById(mmToggle.getAttribute('aria-controls'));
+    mmToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = mmToggle.getAttribute('aria-expanded') === 'true';
+      mmToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (mmSub) mmSub.classList.toggle('is-open', !open);
+    });
+  }
 
   /* ---------- WhatsApp mini-FAQ chat (desktop: hover on FAB + teaser) ---------- */
   var waWidget = doc.getElementById('waWidget');
@@ -392,6 +443,19 @@
       });
     }, { threshold: 0.4 });
     countEls.forEach(function (el) { countIO.observe(el); });
+  }
+
+  /* ---------- Hero subtitle expand (mobile) ---------- */
+  var heroSubToggle = doc.getElementById('heroSubToggle');
+  var heroSubExtra = doc.getElementById('heroSubExtra');
+  if (heroSubToggle && heroSubExtra) {
+    heroSubToggle.addEventListener('click', function () {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      var label = this.querySelector('.hero-sub-toggle-label');
+      heroSubExtra.classList.toggle('is-open', !expanded);
+      this.setAttribute('aria-expanded', !expanded ? 'true' : 'false');
+      if (label) label.textContent = expanded ? 'Ver mais' : 'Ver menos';
+    });
   }
 
 })();
