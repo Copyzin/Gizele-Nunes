@@ -95,6 +95,8 @@
       if (block.prefix) num.appendChild(doc.createTextNode(block.prefix));
       var cu = el('span', 'js-countup', '0');
       cu.setAttribute('data-countup', String(block.num));
+      cu.style.display = 'inline-block';
+      cu.style.minWidth = String(block.num).length + 'ch';
       num.appendChild(cu);
       if (block.suffix) num.appendChild(doc.createTextNode(block.suffix));
       var txt = el('div', 'article-stat-text');

@@ -1,0 +1,92 @@
+# ============================================================
+# Gizele Nunes - Advocacia da Saude
+# .htaccess - deploy de site estatico (single page)
+# Comentarios em ASCII, uma intencao por bloco
+# ============================================================
+
+# ---- Charset padrao UTF-8 (evita quebra de acentos em HTML/CSS) ----
+AddDefaultCharset utf-8
+
+# ---- Documento padrao ----
+DirectoryIndex index.html
+
+# ---- Sem listagem de diretorios (protege FOTOS/LOGO/assets) ----
+Options -Indexes
+
+# ---- Reescrita de rotas ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Bloqueia dotfiles e dot-folders (.git, .playwright-mcp, etc.)
+  # Excecao: .well-known (necessario para emissao de SSL / ACME)
+  RewriteRule "(^|/)\.(?!well-known)" - [F]
+
+  # Canonicalizacao www -> sem www (canonical sem www, igual ao og:url)
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+  # Forca HTTPS (REQUER certificado SSL ativo no dominio).
+  # Se o host ainda nao tiver SSL, comente este bloco para evitar loop.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---- Pagina de erro 404 (segue o design do site, servida com status 404) ----
+ErrorDocument 404 /404.html
+
+# ---- Bloqueia documentos internos do projeto ----
+<FilesMatch "\.(md|markdown|gitignore|gitattributes)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# ---- Compressao (gzip) ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2 application/font-woff
+</IfModule>
+
+# ---- Cache do navegador ----
+# HTML nunca em cache (deploy reflete na hora);
+# CSS/JS/imagens em cache longo (cache busting via ?v=N no HTML).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                      "access plus 1 month"
+  ExpiresByType text/html             "access plus 0 seconds"
+  ExpiresByType text/css              "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg            "access plus 1 year"
+  ExpiresByType image/png             "access plus 1 year"
+  ExpiresByType image/webp            "access plus 1 year"
+  ExpiresByType image/svg+xml         "access plus 1 year"
+  ExpiresByType image/x-icon          "access plus 1 year"
+  ExpiresByType font/woff2            "access plus 1 year"
+</IfModule>
+
+# ---- Cabecalhos de seguranca e cache ----
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # HTML sempre revalidado
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Assets versionados: cache longo e imutavel
+  <FilesMatch "\.(css|js|jpg|jpeg|png|webp|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
